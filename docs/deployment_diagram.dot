@@ -1,0 +1,33 @@
+digraph Deployment {
+  graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.8", splines=ortho, fontname="Arial", labelloc=t, label="Moderated LMS — UML Deployment View (Offline School Installation)", fontsize=18];
+  node [fontname="Arial", fontsize=10, color="#334155", fontcolor="#0f172a", style="rounded,filled", fillcolor="#f8fafc", margin="0.16,0.10"];
+  edge [fontname="Arial", fontsize=9, color="#475569", arrowsize=0.75];
+
+  subgraph cluster_school {
+    label="School premises — offline environment";
+    color="#64748b"; style="rounded,dashed"; fontsize=12;
+
+    subgraph cluster_workstation {
+      label="School workstation / local PC (Windows or Linux)";
+      color="#2563eb"; style="rounded"; fontsize=11;
+      admin [shape=oval, label="Administrator"];
+      lecturer [shape=oval, label="Lecturer"];
+      hod [shape=oval, label="Head of Department"];
+      student [shape=oval, label="Student"];
+      app [shape=component, fillcolor="#dbeafe", label="<<executable>>\nModerated LMS v1.0\nC++17 console application"];
+      db [shape=cylinder, fillcolor="#dcfce7", label="<<database>>\nmoderated_lms.db\nSQLite"];
+      files [shape=folder, fillcolor="#fef3c7", label="submissions/\ncontrolled student files"];
+      runtime [shape=note, fillcolor="#f1f5f9", label="C++ runtime\nSQLite + OpenSSL libraries"];
+      admin -> app [label="account/course setup"];
+      lecturer -> app [label="assignments, extensions, marking"];
+      hod -> app [label="moderation and release"];
+      student -> app [label="submission and results"];
+      app -> db [label="SQL / transactions"];
+      app -> files [label="store submitted files"];
+      runtime -> app [style=dashed, arrowhead=none, label="execution dependencies"];
+    }
+    backup [shape=folder, fillcolor="#f3e8ff", label="Controlled backup location\nencrypted removable media\ndatabase + submissions copy"];
+    db -> backup [label="scheduled offline backup"];
+    files -> backup [label="backup matching files"];
+  }
+}
