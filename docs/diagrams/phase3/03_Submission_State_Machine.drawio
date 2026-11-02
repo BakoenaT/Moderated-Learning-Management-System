@@ -1,0 +1,86 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram id="03_Submission_State_Machine" name="Moderated LMS — Submission State Machine">
+    <mxGraphModel dx="2674" dy="1150" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="560" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Moderated LMS — Submission State Machine" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=24;fontColor=#172033;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="15" width="1200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="start" value="Draft" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="70" y="180" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="submitted" value="Submitted" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="276" y="61" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="late" value="Late" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="283" y="347" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="marked" value="Marked" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="630" y="241" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="moderated" value="Moderated" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="861" y="115" width="190" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="correction" value="Correction Required" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="840" y="410" width="220" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="released" value="Released" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="1140" y="250" width="170" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="done" value="End" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fffdf5;strokeColor=#667085;fontColor=#172033;fontSize=15;spacing=6;" parent="1" vertex="1">
+          <mxGeometry x="1140" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;submit before deadline&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="start" target="submitted" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="139" y="94" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;submit after deadline&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="start" target="late" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="136" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;resubmit before deadline&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="submitted" target="submitted" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="410" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;lecturer marks&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="submitted" target="marked" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;lecturer marks&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="late" target="marked" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;HoD reviews&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="marked" target="moderated" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="148" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;return for correction&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="moderated" target="correction" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;lecturer updates&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="correction" target="marked" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;approve and release&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="moderated" target="released" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;complete&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="released" target="done" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Late-work penalty is applied according to the approved policy; release makes marks visible to students." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#667085;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="520" width="1200" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
