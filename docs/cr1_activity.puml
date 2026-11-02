@@ -1,0 +1,32 @@
+@startuml
+start
+:Lecturer selects whole-class extension;
+:Enter assignment ID, revised deadline and reason;
+if (Assignment belongs to lecturer?) then (yes)
+  :Validate date and reason;
+  if (Revised deadline later than original?) then (yes)
+    :Load currently enrolled students;
+    if (Class has enrolments?) then (yes)
+      :Begin SQLite transaction;
+      repeat
+        :Process next enrolled student;
+        if (Existing individual extension?) then (yes)
+          :Preserve individual exception;
+        else (no)
+          :Insert/update CLASS extension row;
+        endif
+      repeat while (More students?) is (yes)
+      :Commit transaction;
+      :Display number of updated students;
+      :Student assignment list shows effective deadline and extension source;
+    else (no)
+      :Show no-enrolments validation error;
+    endif
+  else (no)
+    :Reject deadline that shortens original due date;
+  endif
+else (no)
+  :Reject unauthorised lecturer/assignment;
+endif
+stop
+@enduml
