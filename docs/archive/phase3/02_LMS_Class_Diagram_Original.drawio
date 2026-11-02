@@ -1,0 +1,125 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram id="02_LMS_Class_Diagram" name="Moderated LMS — Core Class Diagram">
+    <mxGraphModel dx="2674" dy="1150" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="820" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Moderated LMS — Core Class Diagram" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=24;fontColor=#172033;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="15" width="1200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="User&#xa;- userId: int&#xa;- username: string&#xa;- passwordHash: string&#xa;+ login()&#xa;+ logout()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="70" y="81" width="230" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="Administrator&#xa;+ manageUsers()&#xa;+ manageCourses()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="20" y="456" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lecturer" value="Lecturer&#xa;+ createAssignment()&#xa;+ markSubmission()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="404" y="239" width="260" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="hod" value="HeadOfDepartment&#xa;+ moderateMark()&#xa;+ releaseMark()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="384" y="447" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="student" value="Student&#xa;+ viewCourses()&#xa;+ submitWork()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="924" y="337" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="course" value="Course&#xa;- courseId: int&#xa;- code: string&#xa;- title: string" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="334" y="81" width="230" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="assignment" value="Assignment&#xa;- assignmentId: int&#xa;- deadline: datetime&#xa;- maxMark: decimal&#xa;+ setDeadline()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="654" y="73.5" width="250" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="submission" value="Submission&#xa;- submissionId: int&#xa;- submittedAt: datetime&#xa;- status: SubmissionStatus&#xa;+ submit()&#xa;+ resubmit()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="1075" y="63.5" width="280" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="mark" value="Mark&#xa;- markId: int&#xa;- value: decimal&#xa;- feedback: string&#xa;- status: MarkStatus&#xa;+ save()&#xa;+ release()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="649" y="629" width="280" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="AuditLog&#xa;- auditId: int&#xa;- changedAt: datetime&#xa;- oldValue: decimal&#xa;- newValue: decimal&#xa;- reason: string" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="1086" y="613" width="290" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" value="IRepository&lt;T&gt;&#xa;+ add()&#xa;+ getById()&#xa;+ update()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="160" y="610" width="260" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;inherits&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="98" y="453" as="sourcePoint" />
+            <mxPoint x="98" y="223" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="98" y="278" />
+              <mxPoint x="98" y="278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" value="&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;inherits&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="lecturer" target="user" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;inherits&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="hod" target="user" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="276" y="502" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;inherits&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="student" target="user" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;1 to many&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="course" target="assignment" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;1 to many&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="assignment" target="submission" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;submits&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="student" target="submission" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1175" y="247" />
+              <mxPoint x="1175" y="247" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;0..1&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="submission" target="mark" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1215" y="251" />
+              <mxPoint x="892" y="251" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;records&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="lecturer" target="mark" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="534" y="433" />
+              <mxPoint x="790" y="433" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;moderates/releases&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="hod" target="mark" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;audit history&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="mark" target="audit" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;persists&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="course" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="309" y="610" as="sourcePoint" />
+            <mxPoint x="365" y="191" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="309" y="136" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="&lt;span style=&quot;background-color: rgb(0, 0, 0);&quot;&gt;&lt;font style=&quot;color: rgb(255, 255, 255);&quot;&gt;persists&lt;/font&gt;&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="repo" target="submission" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="570" />
+              <mxPoint x="1215" y="570" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" value="Conceptual class model; final method signatures and constraints should follow the approved requirements." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#667085;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="780" width="1200" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
