@@ -1,0 +1,70 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.8 Chrome/140.0.7339.240 Electron/38.4.0 Safari/537.36" version="28.2.8">
+  <diagram id="01_LMS_Architecture" name="Moderated LMS — Layered Architecture">
+    <mxGraphModel dx="2674" dy="1150" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Moderated LMS — Layered Architecture" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=24;fontColor=#172033;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="15" width="1200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="Console / Simple Desktop UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="520" y="100" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="app" value="Application Services" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="520" y="220" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" value="Authentication &amp; Role Access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="113" y="538" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="assign" value="Assignment &amp; Submission Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="395" y="365" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="marks" value="Marking &amp; Moderation Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="790" y="365" width="300" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="Audit Service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="1135" y="524" width="180" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" value="Repository / DAO Layer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eef4ff;strokeColor=#526d9b;fontColor=#172033;fontSize=16;spacing=8;" parent="1" vertex="1">
+          <mxGeometry x="520" y="641" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="MySQL Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e8f6ef;strokeColor=#43836a;fontColor=#172033;fontSize=15;" parent="1" vertex="1">
+          <mxGeometry x="520" y="754" width="360" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="ui" target="app" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="app" target="auth" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="app" target="assign" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="app" target="marks" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="app" target="audit" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="auth" target="repo" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="assign" target="repo" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="marks" target="repo" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="audit" target="repo" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#667085;fontSize=13;fontColor=#344054;" parent="1" source="repo" target="db" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note" value="Design view: responsibilities are separated into UI, services, persistence and database layers." style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#667085;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="100" y="860" width="1200" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
