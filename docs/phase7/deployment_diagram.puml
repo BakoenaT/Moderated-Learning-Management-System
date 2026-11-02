@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+skinparam shadowing false
+skinparam componentStyle rectangle
+actor Administrator
+actor Lecturer
+actor "Head of Department" as HoD
+actor Student
+
+node "School premises — offline environment" {
+  node "School workstation / local PC\nWindows or supported Linux" as Host {
+    artifact "Moderated LMS v1.0\nC++17 console executable" as App
+    database "moderated_lms.db\nSQLite database" as DB
+    folder "submissions/\ncontrolled student files" as Files
+    artifact "logs / local test evidence" as Logs
+  }
+  node "Controlled backup location\n(encrypted removable media)" as Backup {
+    artifact "database backup + submissions backup" as BackupSet
+  }
+}
+Administrator --> App : account and course administration
+Lecturer --> App : assignments, extensions, marking
+HoD --> App : moderation and release
+Student --> App : assignment submission and released results
+App --> DB : SQLite statements / transactions
+App --> Files : copy submitted files
+App --> Logs : operational/test records
+DB --> BackupSet : scheduled offline backup
+Files --> BackupSet : backup with database
+@enduml
