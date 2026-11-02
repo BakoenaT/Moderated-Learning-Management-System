@@ -1,0 +1,55 @@
+name: C++ CI and quality checks
+
+on:
+  push:
+    branches: [ main, "feature/**", "maintenance/**" ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libsqlite3-dev libssl-dev gcovr
+
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DENABLE_COVERAGE=ON
+
+      - name: Build
+        run: cmake --build build --parallel 2
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Generate business-logic coverage report
+        run: gcovr --root . --filter 'src/business_rules.cpp' --xml-pretty -o coverage.xml --print-summary --fail-under-line 70
+
+      - name: Upload test and coverage evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase5-test-and-coverage-evidence
+          path: |
+            coverage.xml
+            build/Testing/Temporary/LastTest.log
+
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Install clang-tidy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy libsqlite3-dev
+      - name: Run clang-tidy on business logic
+        run: clang-tidy src/business_rules.cpp -- -std=c++17 -Isrc
