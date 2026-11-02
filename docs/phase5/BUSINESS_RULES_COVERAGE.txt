@@ -1,0 +1,6 @@
+File 'src/business_rules.cpp'
+Lines executed:84.18% of 158
+Branches executed:78.91% of 294
+Taken at least once:49.66% of 294
+Calls executed:61.16% of 224
+Creating 'business_rules.cpp.gcov'

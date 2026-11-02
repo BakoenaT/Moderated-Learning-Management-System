@@ -1,0 +1,6 @@
+[ 25%] Building CXX object CMakeFiles/lms_business_rules.dir/src/business_rules.cpp.o
+[ 50%] Linking CXX static library liblms_business_rules.a
+[ 50%] Built target lms_business_rules
+[ 75%] Building CXX object CMakeFiles/moderated_lms.dir/src/main.cpp.o
+[100%] Linking CXX executable moderated_lms
+[100%] Built target moderated_lms

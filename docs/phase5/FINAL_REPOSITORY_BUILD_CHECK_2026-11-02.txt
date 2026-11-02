@@ -1,0 +1,27 @@
+CS4433 Moderated LMS — final repository build check
+Execution date: 2 November 2026
+Environment: Linux x86-64 development container
+Compiler: GNU C++ 14.2.0 (C++17 mode)
+CMake: 3.31.x
+SQLite: 3.46.1
+OpenSSL: 3.5.7
+Build option: BUILD_TESTING=OFF (Catch2 not fetched in this run)
+
+Commands executed:
+cmake -S . -B /tmp/modlms_final_build -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug
+cmake --build /tmp/modlms_final_build --parallel 2
+/tmp/modlms_final_build/moderated_lms --init-only
+
+g++ -std=c++17 -O0 -g -Isrc src/business_rules.cpp tests/manual_business_rules_smoke.cpp -lsqlite3 -o /tmp/modlms_business_smoke
+/tmp/modlms_business_smoke
+
+Results:
+- CMake configure: PASS
+- Production C++17 target build: PASS
+- Application SQLite initialization: PASS ("Database initialized.")
+- Manual business-rule smoke assertions: PASS ("PASS: business rule smoke assertions")
+
+Limitations:
+- Catch2/CTest was not run; this build used BUILD_TESTING=OFF.
+- This is Linux development-container evidence, not evidence from the student's Windows target machine.
+- GitHub Actions, 800-student target performance, offline operation, usability and timed backup/restore still require execution and evidence.

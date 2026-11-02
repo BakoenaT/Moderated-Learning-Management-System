@@ -1,0 +1,7 @@
+Runtime and external schema parity check (1 November 2026)
+Tables in runtime SQL: 10
+Tables in database/schema.sql: 10
+Column definitions: identical for every table
+Foreign-key definitions: identical for every table
+PRAGMA foreign_key_check: no violations in either in-memory database
+Result: PASS

@@ -1,0 +1,19 @@
+Business-logic coverage summary (local manual assertion harness)
+Execution date: 1 November 2026
+Compiler: GCC 14.2.0
+Coverage tool: gcov 14.2.0
+Measured translation unit: src/business_rules.cpp
+Harness: tests/manual_business_rules_smoke.cpp
+
+Lines executed:   84.18% of 158 executable lines
+Branches executed: 78.91% of 294 branches
+Branches taken at least once: 49.32% of 294 branches
+Calls executed: 61.16% of 224 calls
+
+Command (from repository root):
+g++ -std=c++17 -O0 -g --coverage -Isrc src/business_rules.cpp tests/manual_business_rules_smoke.cpp -lsqlite3 -o manual_business_rules_smoke
+./manual_business_rules_smoke
+
+Program output: PASS: business rule smoke assertions
+
+This is measured coverage from the independent assertion harness. It is not the required final Catch2/CTest CI coverage report. The Catch2 suite and GitHub Actions workflow are included; run them after pushing the changes and retain the CI artifact.

@@ -1,0 +1,5 @@
+Legacy extension_scope migration test (1 November 2026)
+Precondition: existing SQLite database contained extension_grant without extension_scope and one saved individual extension row.
+Action: launched the updated application with --init-only.
+Actual: extension_scope column was added; saved row remained present with the same deadline/reason and new scope INDIVIDUAL; total of ten LMS tables available.
+Result: PASS
