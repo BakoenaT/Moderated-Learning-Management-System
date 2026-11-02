@@ -1,0 +1,6 @@
+Clang Static Analyzer result (1 November 2026)
+clang++ --analyze -std=c++17 -Isrc src/business_rules.cpp
+clang++ --analyze -std=c++17 -Isrc src/main.cpp
+Both commands completed with no diagnostic output.
+Result: PASS for these two translation units only.
+clang-tidy is a separate tool and remains pending.
