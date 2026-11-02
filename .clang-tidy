@@ -1,0 +1,10 @@
+Checks: >-
+  -*,
+  bugprone-*,
+  clang-analyzer-*,
+  cppcoreguidelines-pro-type-member-init,
+  performance-*,
+  readability-identifier-naming
+WarningsAsErrors: ''
+HeaderFilterRegex: 'src/.*'
+FormatStyle: file
