@@ -1,0 +1,29 @@
+@startuml
+actor Lecturer
+participant "Lecturer Menu" as UI
+participant "Business Rules" as BR
+database "SQLite" as DB
+actor Student
+
+Lecturer -> UI : Select grant whole-class extension
+UI -> BR : grantWholeClassExtension(assignmentId, lecturerId, deadline, reason)
+BR -> DB : SELECT course_id, deadline FROM assignment
+DB --> BR : assignment / ownership
+BR -> BR : Validate ISO deadline and later-than-original rule
+BR -> DB : SELECT enrolled student IDs
+DB --> BR : current class roster
+BR -> DB : BEGIN IMMEDIATE
+loop each enrolled student
+  BR -> DB : UPSERT extension_grant with scope CLASS
+  note right of DB
+    Existing INDIVIDUAL rows are preserved.
+    Existing CLASS rows are only moved later, never shortened.
+  end note
+end
+BR -> DB : COMMIT
+BR --> UI : number of eligible students updated
+Student -> UI : View enrolled assignments
+UI -> DB : SELECT effective deadline and extension_scope
+DB --> UI : original or revised deadline + scope
+UI --> Student : Display effective deadline and extension label
+@enduml

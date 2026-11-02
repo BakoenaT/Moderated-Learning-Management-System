@@ -1,0 +1,17 @@
+@startuml
+left to right direction
+actor Lecturer
+actor Student
+rectangle "Moderated LMS" {
+  usecase "Create assignment" as UC_Create
+  usecase "Grant individual extension" as UC_Individual
+  usecase "Grant whole-class extension" as UC_Class
+  usecase "View enrolled assignments" as UC_View
+  usecase "View effective deadline and extension type" as UC_Effective
+  UC_View .> UC_Effective : includes
+}
+Lecturer --> UC_Create
+Lecturer --> UC_Individual
+Lecturer --> UC_Class
+Student --> UC_View
+@enduml
